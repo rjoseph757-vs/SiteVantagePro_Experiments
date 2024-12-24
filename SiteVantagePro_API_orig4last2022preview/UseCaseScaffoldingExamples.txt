@@ -1,0 +1,17 @@
+https://github.com/jasontaylordev/SiteVantagePro_API
+You can create use cases (commands or queries) by navigating to ./src/Application and running dotnet new ca-usecase. Here are some examples:
+
+To create a new command:
+dotnet new ca-usecase --name CreateTodoList --feature-name TodoLists --usecase-type command --return-type int
+
+To create a query:
+dotnet new ca-usecase -n GetTodos -fn TodoLists -ut query -rt TodosVm
+
+To learn more, run the following command:
+dotnet new ca-usecase --help
+
+
+Sites:
+dotnet new ca-usecase --name CreateSiteList --feature-name SiteLists --usecase-type command --return-type string
+dotnet new ca-usecase -n GetSites -fn SitesLists -ut query -rt SitesVm
+...Change Namespaces to match SiteVantagePro_API from SiteVantagePro_API

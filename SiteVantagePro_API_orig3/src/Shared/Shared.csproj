@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>SiteVantagePro_API.WebUI.Shared</RootNamespace>
+    <AssemblyName>SiteVantagePro_API.WebUI.Shared</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AccessControl\**" />
+    <Compile Remove="Authorization\**" />
+    <EmbeddedResource Remove="AccessControl\**" />
+    <EmbeddedResource Remove="Authorization\**" />
+    <None Remove="AccessControl\**" />
+    <None Remove="Authorization\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" />
+  </ItemGroup>
+
+</Project>

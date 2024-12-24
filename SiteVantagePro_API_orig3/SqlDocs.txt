@@ -1,0 +1,161 @@
+Use Custom Sequence for tables as varchar:
+--https://raresql.com/2013/06/21/sql-server-2012-how-to-generate-a-varchar-sequence-number-using-sequence-object/
+
+--------
+Step 1 :
+In this step, we need to create a sample table and a sequence to demonstrate it.
+
+-- This script is compatibile with SQL Server 2012 and above.
+-- CREATE TABLE
+USE tempdb
+GO
+CREATE TABLE dbo.tbl_sample
+( [ID] VARCHAR(8) ,
+[Name] varchar(50)
+CONSTRAINT PK_Employee_EmployeeID
+PRIMARY KEY CLUSTERED ([ID] ASC) )
+GO
+ 
+--CREATE SEQUENCE
+USE tempdb
+GO
+CREATE SEQUENCE dbo.Sample_Seq AS
+INT START WITH 1
+INCREMENT BY 1 ;
+GO
+
+-- This script is compatibile with SQL Server 2012 and above.
+-- CREATE TABLE
+USE tempdb
+GO
+CREATE TABLE dbo.tbl_sample
+( [ID] VARCHAR(8) ,
+[Name] varchar(50)
+CONSTRAINT PK_Employee_EmployeeID
+PRIMARY KEY CLUSTERED ([ID] ASC) )
+GO
+ 
+--CREATE SEQUENCE
+USE tempdb
+GO
+CREATE SEQUENCE dbo.Sample_Seq AS
+INT START WITH 1
+INCREMENT BY 1 ;
+GO
+
+--------
+Step 2 :
+In this step, we need to create a default value for the [ID] column of the above table, and the default value of the [ID] column should be SEQUENCE and add a custom script to make it varchar.
+
+Given below is the script.
+-- This script is compatibile with SQL Server 2012 and above.
+-- CREATE DEFAULT VALUE OF SEQUENCE
+USE tempdb
+GO
+ALTER TABLE dbo.tbl_sample
+ADD CONSTRAINT Const_Sample_Seq
+DEFAULT FORMAT((NEXT VALUE FOR dbo.Sample_Seq),'CUS0000#') FOR [ID];
+GO
+
+Step 3 :
+Let's insert few records into the table.
+-- This script is compatibile with SQL Server 2012 and above.
+-- Insert records into the table
+USE tempdb
+GO
+INSERT INTO dbo.tbl_sample ([Name])
+VALUES ('Imran'),('Bob'),('Sandra')
+GO
+
+Step 4 :
+Once the data has been inserted, you can browse the table and view the [ID] column data that it is either a number or varchar only.
+--Browse Table
+USE tempdb
+GO
+SELECT * FROM tbl_sample
+GO
+
+
+
+
+
+--https://www.sqlshack.com/difference-between-identity-sequence-in-sql-server/
+Example to use Sequence to create Text-based Primary Keys
+--drop table if exists Product
+--drop sequence seq_Product
+go
+
+CREATE SEQUENCE seq_Product AS BIGINT
+START WITH 1
+INCREMENT BY 1
+
+GO
+
+CREATE TABLE Product
+(
+     Product_No VARCHAR(32) PRIMARY KEY 
+        DEFAULT 'PDT' + FORMAT((NEXT VALUE for seq_Product),'00000' ),
+     Product_Name VARCHAR(50) NOT NULL
+)
+
+insert into Product(Product_Name)
+values ('Fish'),('Shrimp'),('Crab')
+
+
+
+select * from Product 
+
+Notes:
+The value for a SEQUENCE object can be incremented without inserting a row into a table. Execute the following script:
+
+SELECT NEXT VALUE FOR [dbo].[seq_Product]
+It will increment the value by 1
+
+Sequence object provides an option to reset the current sequence value as-well as the increment step size
+ALTER SEQUENCE
+ dbo.SequenceExample
+RESTART WITH 20
+INCREMENT BY 2
+GO
+
+
+Alternative way to Reset the value for a SEQUENCE object and change the increment AND the MAXVALUE
+CREATE SEQUENCE seq_Product AS BIGINT
+START WITH 1
+INCREMENT BY 1
+MINVALUE 1
+--MAXVALUE 3 <<< MUST MAKE IT HUGE, but is optional!!!!
+--CYCLE
+GO
+
+Articles:
+--https://www.red-gate.com/simple-talk/databases/sql-server/learn/how-replace-identity-column-sequence-number/
+--https://sqlhints.com/2015/08/01/difference-between-sequence-and-identity-in-sql-server/ (See reseeding especially)
+--https://raresql.com/2013/06/21/sql-server-2012-how-to-generate-a-varchar-sequence-number-using-sequence-object/
+
+Tables:
+Client (FRO-IL) -hand keyed? [Calculated=LEFT(ClientName,3)+Location]? Note: Location is two-letter State. Should this be an 'alternative' lookup key
+ClientContact (C-0001) -hand keyed?
+Employee (AD-05) -hand keyed?
+JobPlan (F1000DA) -hand keyed?
+PhotoPlan (PP001) -hand keyed?
+PhotoPlanDetail (666AC1DC-F9F7-447E-AFFA-3F5E9B84D183) GUID
+Site (13B-7720-004, 041-23102-11822) - no idea where this came from! Current Count in database table: 3,177. What is a BuildingType? (CO, WAR, Tower, Remote Swith Module, Garage Work Center)
+Territory (T1) -hand keyed?
+Vendor (001-ALA-TX) --hand keyed?
+VendorContact (V-0001) -hand keyed?
+WorkOrder -> WorkOrderId (W1000001) Field length is not long enough to allow for 'scale'
+WorkOrderPhoto ->WorkOrderPhotoId (1 - currently identity column)
+
+Issues:
+1. How do we import data from multiple systems (how many?) and still keep the data relationships intact?
+2. There are duplicates already in the system. Need to remove the ones that should not be there or remediate
+3. CRUD issues:
+    Database normalization cannot happen unless we address the Primary keys (and their foreign key relationships to other tables)
+    Primary Keys (first column) should have consistency to allow system to work in general as well as efficiently
+        Proposal 1: Add GUID (hard to read, but at least consistent) and make current Id's secondary
+        Proposal 2: Use customized Calculated 'Sequence' per table (can use existing, and just add a 'seed' value number high enough to start new records)
+        Proposal 3: Use Identity keys (Int or BigInt)
+        Note: Step 1 is to identify commonality among tables to determine above
+                At present, we can only 'apply' Proposal 1 and 2 above since the current data is text. The issue at hand is 'after' we start adding in 'new data'
+

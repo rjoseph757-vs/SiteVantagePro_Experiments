@@ -1,0 +1,180 @@
+Left off:
+https://www.c-sharpcorner.com/article/securing-asp-net-core-web-api-with-jwt-authentication-and-role-based-authorizati/
+https://www.yogihosting.com/aspnet-core-identity-claims/
+https://www.yogihosting.com/aspnet-core-identity-roles/
+Error:https://github.com/dotnet/aspnetcore/issues/50037
+Error:https://github.com/dotnet/aspnetcore/issues/49424
+app.MapGet("/manage/detailedClaims", (ClaimsPrincipal user) => user.Claims);
+https://github.com/dotnet/aspnetcore/blob/main/src/Identity/Core/src/IdentityApiEndpointRouteBuilderExtensions.cs
+https://github.com/dotnet/aspnetcore/commit/0d0aa336f66255111410454285b7172f86591fb3
+
+Use Claims tables:
+https://codewithmukesh.com/blog/permission-based-authorization-in-aspnet-core/
+https://github.com/iammukeshm/PermissionManagement.MVC/blob/master/PermissionManagement.MVC/Constants/Permissions.cs
+
+
+.NET 8 Identity discussion:
+https://devblogs.microsoft.com/dotnet/improvements-auth-identity-aspnetcore-8/
+https://github.com/dotnet/aspnetcore/issues/42158#issuecomment-1489857925
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-8.0&tabs=visual-studio
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-8.0&tabs=visual-studio#scaffold-identity-into-a-razor-project-with-authorization
+https://devblogs.microsoft.com/dotnet/whats-new-with-identity-in-dotnet-8/
+https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWebAssemblyStandaloneWithIdentity
+https://learn.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/standalone-with-identity?view=aspnetcore-8.0
+
+Community Samples:
+https://github.com/AdrienTorris/awesome-blazor#authentication
+
+Support for ASP.NET Core Identity was added to your project.
+
+For setup and configuration information, see https://go.microsoft.com/fwlink/?linkid=2116645.
+
+
+Account confirmation and password recovery in ASP.NET Core:
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-8.0&tabs=visual-studio#require-email-confirmation
+
+Basic Role Management for cshtml files:
+https://codewithmukesh.com/blog/user-management-in-aspnet-core-mvc/
+
+Flexible Authorization for Blazor:
+https://www.youtube.com/watch?v=vkhtdgfHZYc
+https://www.youtube.com/watch?v=TuG0yKf8RSQ --Oslo 2023 for .NET 7
+https://www.youtube.com/watch?v=rCnsJwMc6-I -- KISS Simple explanation of how he used above in his projects
+
+Register/Login
+{
+  "email": "rjoseph757+dev@gmail.com",
+  "password": "Administrator@1"
+}
+
+administrator@localhost
+Administrator1!
+
+{
+  "email": "administrator@localhost",
+  "password": "Administrator1!",
+  "twoFactorCode": "string",
+  "twoFactorRecoveryCode": "string"
+}
+
+{
+  "email": "administrator@localhost",
+  "password": "Administrator1!"
+}
+
+{
+  "email": "string",
+  "password": "string",
+  "twoFactorCode": "string",
+  "twoFactorRecoveryCode": "string"
+}
+
+
+superadmin@localhost
+SuperAdmin1!
+
+{
+  "email": "superadmin@localhost",
+  "password": "SuperAdmin1!"
+}
+
+
+
+https://localhost:5001/api/index.html?url=/api/specification.json
+
+Identity API endpoints:
+https://andrewlock.net/exploring-the-dotnet-8-preview-introducing-the-identity-api-endpoints/
+https://www.youtube.com/watch?v=8J3nuUegtL4 (Patrick God)
+
+Hide endpoints in SwaggerUI:
+    .ExcludeFromDescription
+
+External Provider (Google):
+https://code-maze.com/external-identity-provider-aspnet-core-identity/
+
+
+Add BlazorWebAssembly Project to existing solution with WebApi:
+https://thecodeblogger.com/2022/09/30/net-7-blazor-webassembly-standalone-app-make-api-calls/
+
+Blazor:
+https://codewithmukesh.com/blog/authentication-in-blazor-webassembly/
+https://codewithmukesh.com/blog/blazor-crud-with-entity-framework-core/
+https://stackoverflow.com/questions/68894138/problem-when-user-has-multi-roles-in-blazor-webassembly-authentication-and-autho
+
+
+Workaround for adding .NET MAUI to solution for Centrally Managed Packages:
+https://github.com/hypdeb/repros/compare/master...jonathanpeppers:MauiNuGetCPMRepro:peppers
+
+Add Fontawesome icons converter:
+https://github.com/matthewrdev/fa2cs
+
+James Montemagno resources:
+https://github.com/jamesmontemagno
+https://github.com/jamesmontemagno/MyCoffeeApp
+
+.NET MAUI Login - Part 1 | Ep:8 Video
+https://www.youtube.com/watch?v=z4_EQ2wM6No
+
+.NET MAUI Login - Play All:
+https://www.youtube.com/watch?v=ileu-fMohsI&list=PLprnOV9ZLFnt8mtFGpLGDMCpPVajLzq22
+
+
+OpenIdDict:
+https://dev.to/robinvanderknaap/setting-up-an-authorization-server-with-openiddict-part-i-introduction-4jid
+
+Azure Blob Storage:
+https://www.intertech.com/asp-net-core-azure-blob-storage-repository-pattern/
+https://stackoverflow.com/questions/64185751/how-to-replace-microsoft-windowsazure-storage-with-microsoft-azure-storage-blob
+
+Azure Logic Apps (schedule):
+https://www.mssqltips.com/sqlservertip/6420/create-azure-sql-database-scheduled-jobs/
+
+Sendgrid:
+https://www.twilio.com/blog/how-to-send-asp-net-core-identity-emails-with-twilio-sendgrid
+
+
+
+
+
+
+Tutorials:
+https://procodeguide.com/programming/aspnet-core-security/
+https://procodeguide.com/programming/aspnet-core-identity-roles-authorization/
+https://procodeguide.com/programming/aspnet-core-identity-claims/
+https://codewithmukesh.com/blog/user-management-in-aspnet-core-mvc/
+https://github.com/iammukeshm/CustomUserManagement.MVC/blob/master/UserManagement.MVC/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs
+
+Roles:
+https://stackoverflow.com/questions/67808674/openiddict-roles-policy-returns-403-forbidden
+MS: https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+https://weblog.west-wind.com/posts/2021/Mar/09/Role-based-JWT-Tokens-in-ASPNET-Core
+
+https://devblogs.microsoft.com/dotnet/whats-new-with-identity-in-dotnet-8/
+https://www.telerik.com/blogs/authorization-authentication-minimal-apis
+https://github.com/dotnet/blazor-samples/tree/main/8.0/BlazorWasmStandaloneWithIdentity/Backend
+
+Scaffolding:
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-7.0&tabs=visual-studio
+dotnet tool install dotnet-ef --global --prerelease
+dotnet tool update dotnet-ef --global --prerelease
+
+Add Email support for SendGrid:
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-8.0&source=recommendations&tabs=visual-studio
+
+Customize Identity Model:
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/customize-identity-model?view=aspnetcore-8.0
+https://code-maze.com/authentication-aspnet-core-identity/
+
+Issues:
+https://copyprogramming.com/howto/signinmanager-passwordsigninasync-succeeds-but-user-identity-isauthenticated-is-false
+
+Multiple Authentications in Web API (none work without app.MapGroup("api")):
+https://weblog.west-wind.com/posts/2022/Mar/29/Combining-Bearer-Token-and-Cookie-Auth-in-ASPNET
+https://github.com/dotnet/aspnetcore/issues/15138https://github.com/dotnet/aspnetcore/issues/15138
+https://stackoverflow.com/questions/63228070/identity-server-check-if-user-is-logged-in-always-return-false
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-7.0
+Works:  -->https://github.com/shawnwildermuth/codingshorts/blob/main/mapidentityapi/IdentityTokenApp/Program.cs
+        -->--https://www.youtube.com/watch?v=owoy6DG0UG0&list=PLtOvnDRdH12fj4eLqBmjgCfdvsh2u3tN9&index=5
+
+IOptions:
+https://codewithmukesh.com/blog/options-pattern-in-aspnet-core/

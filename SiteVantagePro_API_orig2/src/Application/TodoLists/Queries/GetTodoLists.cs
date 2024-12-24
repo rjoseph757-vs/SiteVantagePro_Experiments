@@ -1,0 +1,45 @@
+﻿using SiteVantagePro_API.Application.Common.Interfaces;
+using SiteVantagePro_API.Domain.Enums;
+using SiteVantagePro_API.WebUI.Shared.Common;
+using SiteVantagePro_API.WebUI.Shared.TodoLists;
+
+namespace SiteVantagePro_API.Application.TodoLists.Queries;
+
+public record GetTodoListsQuery : IRequest<TodosVm>;
+
+public class GetTodoListsQueryHandler
+    : IRequestHandler<GetTodoListsQuery, TodosVm>
+{
+    private readonly IApplicationDbContext _context;
+    private readonly IMapper _mapper;
+
+    public GetTodoListsQueryHandler(
+        IApplicationDbContext context,
+        IMapper mapper)
+    {
+        _context = context;
+        _mapper = mapper;
+    }
+
+    public async Task<TodosVm> Handle(
+        GetTodoListsQuery request,
+        CancellationToken cancellationToken)
+    {
+        return new TodosVm
+        {
+            // TODO: Create an enum helper to build these...
+            PriorityLevels = Enum.GetValues(typeof(PriorityLevel))
+                .Cast<PriorityLevel>()
+                .Select(p => new LookupDto
+                {
+                    Id = (int)p,
+                    Title = p.ToString()
+                })
+                .ToList(),
+
+            Lists = await _context.TodoLists
+                .ProjectTo<TodoListDto>(_mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken)
+        };
+    }
+}

@@ -1,0 +1,104 @@
+.NET 8 Identity discussion:
+https://devblogs.microsoft.com/dotnet/improvements-auth-identity-aspnetcore-8/
+https://github.com/dotnet/aspnetcore/issues/42158#issuecomment-1489857925
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-8.0&tabs=visual-studio
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-8.0&tabs=visual-studio#scaffold-identity-into-a-razor-project-with-authorization
+
+Support for ASP.NET Core Identity was added to your project.
+
+For setup and configuration information, see https://go.microsoft.com/fwlink/?linkid=2116645.
+
+
+Account confirmation and password recovery in ASP.NET Core:
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/accconfirm?view=aspnetcore-8.0&tabs=visual-studio#require-email-confirmation
+
+Basic Role Management for cshtml files:
+https://codewithmukesh.com/blog/user-management-in-aspnet-core-mvc/
+
+Flexible Authorization for Blazor:
+https://www.youtube.com/watch?v=vkhtdgfHZYc
+https://www.youtube.com/watch?v=TuG0yKf8RSQ --Oslo 2023 for .NET 7
+https://www.youtube.com/watch?v=rCnsJwMc6-I -- KISS Simple explanation of how he used above in his projects
+
+Register/Login
+{
+  "email": "rjoseph757+dev@gmail.com",
+  "password": "Administrator@1"
+}
+
+administrator@localhost
+Administrator1!
+
+{
+  "email": "administrator@localhost",
+  "password": "Administrator1!",
+  "twoFactorCode": "string",
+  "twoFactorRecoveryCode": "string"
+}
+
+{
+  "email": "administrator@localhost",
+  "password": "Administrator1!"
+}
+
+{
+  "email": "string",
+  "password": "string",
+  "twoFactorCode": "string",
+  "twoFactorRecoveryCode": "string"
+}
+
+
+https://localhost:5001/api/index.html?url=/api/specification.json
+
+Identity API endpoints:
+https://andrewlock.net/exploring-the-dotnet-8-preview-introducing-the-identity-api-endpoints/
+https://www.youtube.com/watch?v=8J3nuUegtL4 (Patrick God)
+
+Hide endpoints in SwaggerUI:
+    .ExcludeFromDescription
+
+External Provider (Google):
+https://code-maze.com/external-identity-provider-aspnet-core-identity/
+
+
+Add BlazorWebAssembly Project to existing solution with WebApi:
+https://thecodeblogger.com/2022/09/30/net-7-blazor-webassembly-standalone-app-make-api-calls/
+
+Blazor:
+https://codewithmukesh.com/blog/authentication-in-blazor-webassembly/
+https://codewithmukesh.com/blog/blazor-crud-with-entity-framework-core/
+
+
+Workaround for adding .NET MAUI to solution for Centrally Managed Packages:
+https://github.com/hypdeb/repros/compare/master...jonathanpeppers:MauiNuGetCPMRepro:peppers
+
+Add Fontawesome icons converter:
+https://github.com/matthewrdev/fa2cs
+
+James Montemagno resources:
+https://github.com/jamesmontemagno
+https://github.com/jamesmontemagno/MyCoffeeApp
+
+.NET MAUI Login - Part 1 | Ep:8 Video
+https://www.youtube.com/watch?v=z4_EQ2wM6No
+
+.NET MAUI Login - Play All:
+https://www.youtube.com/watch?v=ileu-fMohsI&list=PLprnOV9ZLFnt8mtFGpLGDMCpPVajLzq22
+
+
+OpenIdDict:
+https://dev.to/robinvanderknaap/setting-up-an-authorization-server-with-openiddict-part-i-introduction-4jid
+
+Azure Blob Storage:
+https://www.intertech.com/asp-net-core-azure-blob-storage-repository-pattern/
+https://stackoverflow.com/questions/64185751/how-to-replace-microsoft-windowsazure-storage-with-microsoft-azure-storage-blob
+
+Azure Logic Apps (schedule):
+https://www.mssqltips.com/sqlservertip/6420/create-azure-sql-database-scheduled-jobs/
+
+Sendgrid:
+https://www.twilio.com/blog/how-to-send-asp-net-core-identity-emails-with-twilio-sendgrid
+
+Multiple Authentications in Web API:
+https://weblog.west-wind.com/posts/2022/Mar/29/Combining-Bearer-Token-and-Cookie-Auth-in-ASPNET
