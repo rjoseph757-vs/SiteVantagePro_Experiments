@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Web_Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:Web_Maui.Helpers"
+    xmlns:views="clr-namespace:Web_Maui.Views.Pages"
+    Title="SiteVantagePro Mobile"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar x:Name="PhoneTabs">
+        <Tab>
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="x:Static fontAwesome:fontAwesomeIcons.House}"
+                    Color="{AppThemeBinding Dark=White,
+                                            Light={StaticResource SystemGray5Dark}}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate views:HomePage}" Route="HomePage" />
+        </Tab>
+
+        <Tab>
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="x:Static fontAwesome:fontAwesomeIcons.Cog}"
+                    Color="{AppThemeBinding Dark=White,
+                                            Light={StaticResource SystemGray5Dark}}" />
+            </Tab.Icon>
+            <ShellContent
+                Title="Settings"
+                ContentTemplate="{DataTemplate views:SettingsPage}"
+                Icon="{OnPlatform 'icon_about.png',
+                                  iOS='icon_about_ios.png',
+                                  MacCatalyst='icon_about_ios.png'}" />
+        </Tab>
+
+        <Tab>
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="x:Static fontAwesome:fontAwesomeIcons.Cog}"
+                    Color="{AppThemeBinding Dark=White,
+                                            Light={StaticResource SystemGray5Dark}}" />
+            </Tab.Icon>
+            <ShellContent
+                Title="Vendor"
+                ContentTemplate="{DataTemplate views:VendorPage}"
+                Icon="{OnPlatform 'icon_about.png',
+                                  iOS='icon_about_ios.png',
+                                  MacCatalyst='icon_about_ios.png'}" />
+        </Tab>
+
+        <Tab>
+            <Tab.Icon>
+                <FontImageSource
+                    FontFamily="FAS"
+                    Glyph="x:Static fontAwesome:fontAwesomeIcons.House}"
+                    Color="{AppThemeBinding Dark=White,
+                                            Light={StaticResource SystemGray5Dark}}" />
+            </Tab.Icon>
+            <ShellContent
+                Title="About"
+                ContentTemplate="{DataTemplate views:AboutPage}"
+                Icon="{OnPlatform 'icon_about.png',
+                                  iOS='icon_about_ios.png',
+                                  MacCatalyst='icon_about_ios.png'}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

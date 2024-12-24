@@ -1,0 +1,23 @@
+﻿@page
+
+@model IndexModel
+
+@inject Microsoft.AspNetCore.Hosting.IWebHostEnvironment env
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <section class="text-center">
+        <div class="display-4">
+            <hgroup>
+                <h1>Welcome &hellip;</h1>
+            </hgroup>
+            <p>Environment: [@env.EnvironmentName]</p>
+            <p>
+                Please visit the API link above for testing &hellip;
+            </p>
+        </div>
+    </section>
+</div>

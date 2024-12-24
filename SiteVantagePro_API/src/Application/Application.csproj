@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>SiteVantagePro_API.Application</RootNamespace>
+    <AssemblyName>SiteVantagePro_API.Application</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AccessControl\**" />
+    <Compile Remove="Roles\**" />
+    <Compile Remove="Users\**" />
+    <EmbeddedResource Remove="AccessControl\**" />
+    <EmbeddedResource Remove="Roles\**" />
+    <EmbeddedResource Remove="Users\**" />
+    <None Remove="AccessControl\**" />
+    <None Remove="Roles\**" />
+    <None Remove="Users\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common\Behaviours\AuthorizationBehaviour.cs" />
+    <Compile Remove="Common\Behaviours\LoggingBehaviour.cs" />
+    <Compile Remove="Common\Behaviours\PerformanceBehaviour.cs" />
+    <Compile Remove="Common\Interfaces\IIdentityService.cs" />
+    <Compile Remove="Common\Services\Identity\IIIdentityService.cs" />
+    <Compile Remove="TodoLists\Commands\UpdateTodoList\UpdateTodoListCommandValidator.cs" />
+    <Compile Remove="TodoLists\Mapping.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+</Project>

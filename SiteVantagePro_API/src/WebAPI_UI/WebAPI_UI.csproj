@@ -1,0 +1,203 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>SiteVantagePro_API.WebAPI_UI</RootNamespace>
+    <AssemblyName>SiteVantagePro_API.WebAPI_UI</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas_old\**" />
+    <Compile Remove="wwwroot\wwwroot\**" />
+    <Content Remove="Areas_old\**" />
+    <Content Remove="wwwroot\wwwroot\**" />
+    <EmbeddedResource Remove="Areas_old\**" />
+    <EmbeddedResource Remove="wwwroot\wwwroot\**" />
+    <None Remove="Areas_old\**" />
+    <None Remove="wwwroot\wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\AuthorizationController.cs" />
+    <Compile Remove="Controllers\UsersInfoController.cs" />
+    <Compile Remove="Endpoints\UsersInfo.cs" />
+    <Compile Remove="Services\CustomEmailConfirmationTokenProvider.cs" />
+    <Compile Remove="Services\EmailConfirmationTokenProviderOptions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\UserRoles\Manage.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\UserRoles\Index.cshtml_old" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_WebToolingArtifacts Remove="Properties\serviceDependencies.json" />
+    <_WebToolingArtifacts Remove="Properties\serviceDependencies.local.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Components\_Imports.razor.txt" />
+    <Content Include="Properties\serviceDependencies.json" />
+    <Content Include="Properties\serviceDependencies.local.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Identity\Pages\Account\AccessDenied.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ConfirmEmail.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ConfirmEmailChange.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ExternalLogin.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ForgotPassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ForgotPasswordConfirmation.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Lockout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Login.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\LoginWith2fa.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\LoginWithRecoveryCode.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Logout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Email.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Index.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\PersonalData.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\SetPassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_Layout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Register.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ResendEmailConfirmation.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ResetPassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\ResetPasswordConfirmation.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\_StatusMessage.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\Error.cshtml" />
+    <None Include="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewStart.cshtml" />
+    <None Include="Components\Account\Pages\ConfirmEmail.razor" />
+    <None Include="Components\Account\Pages\ConfirmEmailChange.razor" />
+    <None Include="Components\Account\Pages\ExternalLogin.razor" />
+    <None Include="Components\Account\Pages\ForgotPassword.razor" />
+    <None Include="Components\Account\Pages\ForgotPasswordConfirmation.razor" />
+    <None Include="Components\Account\Pages\InvalidPasswordReset.razor" />
+    <None Include="Components\Account\Pages\InvalidUser.razor" />
+    <None Include="Components\Account\Pages\Lockout.razor" />
+    <None Include="Components\Account\Pages\Login.razor" />
+    <None Include="Components\Account\Pages\LoginWith2fa.razor" />
+    <None Include="Components\Account\Pages\LoginWithRecoveryCode.razor" />
+    <None Include="Components\Account\Pages\Manage\ChangePassword.razor" />
+    <None Include="Components\Account\Pages\Manage\DeletePersonalData.razor" />
+    <None Include="Components\Account\Pages\Manage\Disable2fa.razor" />
+    <None Include="Components\Account\Pages\Manage\Email.razor" />
+    <None Include="Components\Account\Pages\Manage\EnableAuthenticator.razor" />
+    <None Include="Components\Account\Pages\Manage\ExternalLogins.razor" />
+    <None Include="Components\Account\Pages\Manage\GenerateRecoveryCodes.razor" />
+    <None Include="Components\Account\Pages\Manage\Index.razor" />
+    <None Include="Components\Account\Pages\Manage\PersonalData.razor" />
+    <None Include="Components\Account\Pages\Manage\ResetAuthenticator.razor" />
+    <None Include="Components\Account\Pages\Manage\SetPassword.razor" />
+    <None Include="Components\Account\Pages\Manage\TwoFactorAuthentication.razor" />
+    <None Include="Components\Account\Pages\Manage\_Imports.razor" />
+    <None Include="Components\Account\Pages\Register.razor" />
+    <None Include="Components\Account\Pages\RegisterConfirmation.razor" />
+    <None Include="Components\Account\Pages\ResendEmailConfirmation.razor" />
+    <None Include="Components\Account\Pages\ResetPassword.razor" />
+    <None Include="Components\Account\Pages\ResetPasswordConfirmation.razor" />
+    <None Include="Components\Account\Pages\_Imports.razor" />
+    <None Include="Components\Account\Shared\AccountLayout.razor" />
+    <None Include="Components\Account\Shared\ExternalLoginPicker.razor" />
+    <None Include="Components\Account\Shared\ManageLayout.razor" />
+    <None Include="Components\Account\Shared\ManageNavMenu.razor" />
+    <None Include="Components\Account\Shared\ShowRecoveryCodes.razor" />
+    <None Include="Components\Account\Shared\StatusMessage.razor" />
+    <None Include="Components\App.razor" />
+    <None Include="Components\Layout\MainLayout.razor" />
+    <None Include="Components\Layout\NavMenu.razor" />
+    <None Include="Components\Pages\Error.razor" />
+    <None Include="Components\Pages\Home.razor" />
+    <None Include="Components\Pages\Weather.razor" />
+    <None Include="Components\Routes.razor" />
+    <None Include="Pages\Auth.razor" />
+    <None Include="Pages\Counter.razor" />
+    <None Include="Properties\serviceDependencies.local.json.user" />
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\Home\Index.cshtml" />
+    <None Include="Views\Home\Privacy.cshtml" />
+    <None Include="Views\RoleManager\Index.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <None Include="Views\Users\Claims.cshtml" />
+    <None Include="Views\_ViewImports.cshtml" />
+    <None Include="Views\_ViewStart.cshtml" />
+    <None Include="wwwroot\bootstrap\bootstrap.min.css.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\WebAPI_UI.Client\WebAPI_UI.Client.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" />
+    <PackageReference Include="Azure.Identity" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" />
+    <PackageReference Include="FluentValidation.AspNetCore" />
+    <PackageReference Include="NuGet.Common" />
+    <PackageReference Include="NuGet.Protocol" />
+    <PackageReference Include="SendGrid" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.Text.RegularExpressions" />
+  </ItemGroup>
+
+
+  <!-- Auto-generated Open API specification and Angular TypeScript clients -->
+  <!--
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' And '$(SkipNSwag)' != 'True' ">
+    <Exec ConsoleToMSBuild="true" ContinueOnError="true" WorkingDirectory="$(ProjectDir)" EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" Command="$(NSwagExe_Net70) run config.nswag /variables:Configuration=$(Configuration)">
+      <Output TaskParameter="ExitCode" PropertyName="NSwagExitCode" />
+      <Output TaskParameter="ConsoleOutput" PropertyName="NSwagOutput" />
+    </Exec>
+
+    <Message Text="$(NSwagOutput)" Condition="'$(NSwagExitCode)' == '0'" Importance="low" />
+    <Error Text="$(NSwagOutput)" Condition="'$(NSwagExitCode)' != '0'" />
+  </Target>
+  -->
+
+</Project>

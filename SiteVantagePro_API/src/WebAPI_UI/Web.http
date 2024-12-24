@@ -1,0 +1,176 @@
+﻿# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@Web_HostAddress = https://localhost:7087
+
+@Username=superadmin@localhost
+@Email=superadmin@localhost
+@Password=SuperAdmin1!
+@BearerToken=CfDJ8JHizPP20BBJso-7xVg0Itagt_hXhMzff5XKil369DHZxtoF7cFikfNue1tCrraYTRISaNVLi_KD0EUziuOr2trsfQ8xhhGkAKWyosdIMMt0MN0LXSgU_hacJ9Qz3hNqAUVUGoHlVTa35eCX4DFJoDH586u3x_jayzJb6Va1MBBdMucV-04QMVJK18-n4PZzyDeDlN2J7H4Odi6srOgdisQRhLSKAxAEhOI5Mzjfq58HiydyPpfur3_OsSnY8vQSmIpYMyWaGeZK-NPJEush0gMonZFxGp8-lEa4CBBeevBBSKSWVte0dMoVG3we16K2zQUFTl06Ihh0P2bwPi4eY6QPhgz9qeH0BG9oTldTT25TDh0nl94cUXZ5vtGskRp1P8UZPAYAh2JKGYzO1CIKywat3QfLsHlN2kGpifW9gATlVI-5m6Aob0abzEqEcQfB0yYM7UEISmBj_lzqDoMFANIDp_M2l03xJH3ttu24SHlohkbE5oK6iGM8Id8YdbkvBthndM-n90zEktgDxhr2KIgg4f6jI2CwSqHV4NFXf4XSqx00YkqiGljabHK2Zr-9OAJn97WW2xfeFxAcDAaMDQ-RruvjqLX9AElAsyak7ZeWyxpoaPg_iHLLH4WnlX50xED_8vZCYdFVrr2Zu1yiZaQgmHrG3bNB8kqb0qHk3W85nmJsw6ag-JKB6sswIfjsHCVoCEwLYG3WXcbdN7SFFCc-FdC6n_iUlamJoBj3TMSbaIPE1luocuwNHHzLz2pt86dszbsJGGHe0d7BwK0AOayAR39Q3YUZvPqyVJQGQSs89YBkiPTmBiJ_q-7wIq9zH2yh2F0UnaeZUsvXnOehyxd1nrGLg8K0rkK8ib2wGXEhqERsN1J7L4vzXZ725_065jFdYhTa8v_CGsfWNNq1LAEIyZlMeL25bE0u767hAQeKgK0-0nm-Qe-VM3FK05Z73PrLgrIT-3iAYZmqmVJGEY2dR2u-3Rp0liMB4fDbeitkYsr91CcuuHBQmPJi8Bm0n4j3PhGyAu0IUSBOmkqHsOo3afaI7GzuRzWXMAbyQCKO--YZ59DQWFQonf6DoYc22c2ZuL9WQ_4P_Z-Xe7M0_JkY01qP5HcBPrLBBv_fcRzXPrs4OKVhJDQutb7NjaS9vxbzx3Et49ASmMTIdy0K-OD7TxXocZcRNJIOhQpWkYp9v58Ybwf5YeO6QwVMYTKWpEtUqkOtKwecbE8RlGsOT8k8zsXtfC6eDflBWY9DJH_GwbeRBqdVWlZ3J1MmiIrrtdds7WdN1mzz8cJEQD-UIBFAD-zORIhucBEjJ11mdMjZ-RTGuNBfnDoGgH9UhCPuPsQdc9MdVIfxUSMIFpwixwLuN5G_Fnw1nYqW1WhWTQRu4FbpvRsVUEa_x-HJVEslAN7rWim0sFSsKk7SiMVu9wCJ4msM-QXn57XOu72ylAs0ro95MwjiOr3SFU3BbcBzwA
+
+# POST Users Login
+POST {{Web_HostAddress}}/api/login
+Content-Type: application/json
+
+{
+  "email": "superadmin@localhost",
+  "password": "SuperAdmin1!"
+}
+
+###
+
+# POST Users Register
+POST {{Web_HostAddress}}/Users/Register
+Content-Type: application/json
+
+{
+  "email": "{{Email}}",
+  "password": "{{Password}}"
+}
+
+###
+
+# POST Users Login
+POST {{Web_HostAddress}}/Users/Login
+Content-Type: application/json
+
+{
+  "email": "{{Email}}",
+  "password": "{{Password}}"
+}
+
+###
+
+# POST Users Refresh
+POST {{Web_HostAddress}}/Users/Refresh
+Authorization: Bearer {{BearerToken}}
+Content-Type: application/json
+
+{
+  "refreshToken": ""
+}
+
+###
+
+# GET WeatherForecast
+GET {{Web_HostAddress}}/v1/api/WeatherForecasts
+Authorization: Bearer {{BearerToken}}
+
+###
+
+# GET TodoLists
+GET {{Web_HostAddress}}/TodoLists
+Authorization: Bearer {{BearerToken}}
+
+###
+
+# POST TodoLists
+POST {{Web_HostAddress}}/TodoLists
+Authorization: Bearer {{BearerToken}}
+Content-Type: application/json
+
+// CreateTodoListCommand
+{
+  "Title": "Backlog"
+}
+
+###
+
+# PUT TodoLists
+PUT {{Web_HostAddress}}/v1/api/TodoLists/1
+Authorization: Bearer {{BearerToken}}
+Content-Type: application/json
+
+// UpdateTodoListCommand
+{
+  "Id": 1,
+  "Title": "Product Backlog"
+}
+
+###
+
+# DELETE TodoLists
+DELETE {{Web_HostAddress}}/v1/api/TodoLists/1
+Authorization: Bearer {{BearerToken}}
+
+###
+#/TodoItems?ListId=1&PageNumber=1&PageSize=10
+# GET TodoItems
+@PageNumber = 1
+@PageSize = 10
+GET {{Web_HostAddress}}/TodoItems?ListId=1&PageNumber={{PageNumber}}&PageSize={{PageSize}}
+Accept: application/json
+Authorization: Bearer {{BearerToken}}
+
+###
+
+# POST TodoItems
+POST {{Web_HostAddress}}/v1/api/TodoItems
+Authorization: Bearer {{BearerToken}}
+Content-Type: application/json
+
+// CreateTodoItemCommand
+{
+  "ListId": 1,
+  "Title": "Eat a burrito 🌯"
+}
+
+###
+
+#PUT TodoItems UpdateItemDetails
+PUT {{Web_HostAddress}}/v1/api/TodoItems/UpdateItemDetails/1
+Authorization: Bearer {{BearerToken}}
+Content-Type: application/json
+
+// UpdateTodoItemDetailCommand
+{
+  "Id": 1,
+  "ListId": 1,
+  "Priority": 3,
+  "Note": "This is a good idea!"
+}
+
+# #PUT TodoItems UpdateItemDetails
+# PUT {{Web_HostAddress}}/v1/api/TodoItems/UpdateItemDetails?Id=1
+# Authorization: Bearer {{BearerToken}}
+# Content-Type: application/json
+
+# // UpdateTodoItemDetailCommand
+# {
+#   "Id": 1,
+#   "ListId": 1,
+#   "Priority": 3,
+#   "Note": "This is a good idea!"
+# }
+
+###
+
+# PUT TodoItems
+PUT {{Web_HostAddress}}/v1/api/TodoItems/1
+Authorization: Bearer {{BearerToken}}
+Content-Type: application/json
+
+// UpdateTodoItemCommand
+{
+  "Id": 1,
+  "Title": "Eat a yummy burrito 🌯",
+  "Done": true
+}
+
+###
+
+# DELETE TodoItem
+DELETE {{Web_HostAddress}}/v1/api/TodoItems/1
+Authorization: Bearer {{BearerToken}}
+
+###
+
+#Program.cs testing (commented out)
+###
+
+GET {{Web_HostAddress}}/v1/api/foo
+Authorization: Bearer {{BearerToken}}
+
+###
+GET {{Web_HostAddress}}/SuperAdminOnly
+Authorization: Bearer {{BearerToken}}
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Web_Maui.Views.NotePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:Web_Maui.ViewModels"
+    Title="Note">
+
+    <ContentPage.BindingContext>
+        <vm:NoteViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Margin="5" Spacing="10">
+        <Editor
+            x:Name="TextEditor"
+            HeightRequest="100"
+            Placeholder="Enter your note"
+            Text="{Binding Text}" />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="4">
+            <Button Command="{Binding SaveCommand}" Text="Save" />
+
+            <Button
+                Grid.Column="1"
+                Command="{Binding DeleteCommand}"
+                Text="Delete" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

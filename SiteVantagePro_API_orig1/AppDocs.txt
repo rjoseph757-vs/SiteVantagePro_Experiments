@@ -1,0 +1,4 @@
+.NET 8 Identity discussion:
+https://devblogs.microsoft.com/dotnet/improvements-auth-identity-aspnetcore-8/
+https://github.com/dotnet/aspnetcore/issues/42158#issuecomment-1489857925
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/scaffold-identity?view=aspnetcore-8.0&tabs=visual-studio
